@@ -48,6 +48,13 @@
   padding: 20px;
   border-radius: 10px;
   border: 2px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
