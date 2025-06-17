@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  os:ubuntu-latest
+  os:ubuntu
 
 jobs:
   build:
