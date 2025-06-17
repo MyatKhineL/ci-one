@@ -6,6 +6,9 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  os:ubuntu-latest
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,8 +24,8 @@ jobs:
       - name: Cache Node.js Modules 
         uses: actions/cache@v4
         with:
-          path:node_modules
-          key: test-1
+          path: node_modules
+          key: ${{env.os}}-build-1
 
       - name: Install Dependencies
         run: npm install
@@ -43,12 +46,14 @@ jobs:
           node-version: '20'
       
       - name: Cache Node.js Modules
+        id: cache-node-modules
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: test-1
+          key: ${{env.os}}-build-1
 
       - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run Tests
