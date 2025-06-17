@@ -43,12 +43,14 @@ jobs:
           node-version: '20'
       
       - name: Cache Node.js Modules
+        id: cache-node-modules
         uses: actions/cache@v4
         with:
           path: node_modules
           key: test-1
 
       - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run Tests
