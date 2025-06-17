@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path:node_modules
-          key: test-1
+          key:test-1
 
       - name: Install Dependencies
         run: npm install
