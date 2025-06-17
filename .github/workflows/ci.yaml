@@ -7,11 +7,11 @@ on:
   workflow_dispatch:
 
 env:
-  OS: ubuntu
+  OS: window
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: window-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
   unit-test:
-    runs-on: ubuntu-latest
+    runs-on: window-latest
     needs: build
     steps:
       - name: Checkout Code
